@@ -8,7 +8,7 @@ pipeline {
                     sh 'whoami'
                     sh 'pwd'
                     sh 'ls -l'
-                    sh 'export KUBECONFIG=/var/lib/jenkins/.kube/admin.conf'
+                    sh 'export KUBECONFIG=/var/lib/jenkins/workspace/dev/.kube/admin.conf'
                     sh 'kubectl get nodes'
                 }
             }
