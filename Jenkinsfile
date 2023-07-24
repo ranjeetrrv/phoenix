@@ -15,12 +15,8 @@ pipeline {
                     {
                        {
                        sh '''
-                        docker build -t nginx:$GIT_COMMIT  -f Dockerfile.main .
-                        docker login nexus.wakatech.com:5001 --username $NEXUS_USER --password $NEXUS_PASSWORD
-                        docker tag nginx:$GIT_COMMIT nexus.wakatech.com:5001/nginx:$GIT_COMMIT
-                        docker push nexus.wakatech.com:5001/nginx:$GIT_COMMIT
                         export KUBECONFIG=/var/lib/jenkins/.kube/admin.conf
-                        kubectl apply -f nginx-deploy.yaml
+                        kubectl get nodes
                         '''
                     }                    
                 }
